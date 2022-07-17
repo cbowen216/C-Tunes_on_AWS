@@ -12,6 +12,7 @@
     django - web deployment framework
         as ORM 
         migration manager 
+        APIREST
         Etc...
 
     AWS - to serve the db to endusers

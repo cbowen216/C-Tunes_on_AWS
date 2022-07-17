@@ -4,7 +4,7 @@
         I think I am going to try to do this using the week 2 Workshop as my template
 
 ### Tools / Packages ###
-    gitHub for rev control
+    gitHub for rev control - setup
     Docker to containerize and deployment
     Postgress for the database
     django - web deployment framework
@@ -23,11 +23,26 @@
     psycopg2-binary==2.9.1
 
 
+
+
 ### TODO List ### 
     Create a gitHub reposiory - Done 
     Build schema and track with migration
     create docker container 
     AWS - set up
+        EC2
+            Public IPv4 DNS - info
+
+        inbound port rule
+
+        ECR
+            epository's URI - info 
+
+
+        RDS
+            endpoint and port - info
+                
+
 
     populate main tables with data
         users songs
