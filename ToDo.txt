@@ -11,6 +11,7 @@
         as ORM 
         migration manager 
         Etc...
+    nginx - ?
 
     AWS - to serve the db to endusers
 
@@ -23,7 +24,7 @@
 
 
 ### TODO List ### 
-    Create a gitHub reposiory
+    Create a gitHub reposiory - Done 
     Build schema and track with migration
     create docker container 
     AWS - set up
