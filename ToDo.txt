@@ -1,0 +1,56 @@
+### GOAL: ###
+
+    Set up the C-tunes database for deployment on AWS
+        I think I am going to try to do this using the week 2 Workshop as my template
+
+### Tools / Packages ###
+    gitHub for rev control
+    Docker to containerize and deployment
+    Postgress for the database
+    django - web deployment framework
+        as ORM 
+        migration manager 
+        Etc...
+
+    AWS - to serve the db to endusers
+
+### Requirements
+    django==3.2.2
+    gunicorn==20.0.4
+    djangorestframework==3.12.4
+    python-decouple==3.4
+    psycopg2-binary==2.9.1
+
+
+### TODO List ### 
+    Create a gitHub reposiory
+    Build schema and track with migration
+    create docker container 
+    AWS - set up
+
+    populate main tables with data
+        users songs
+            - populate with dummy data
+
+            - fix the dummy data python file to get the record count and max, min record id for both users and songs.  right now you have to manually look up the user and song key min / max if you rewrote the database this code wiould not work
+
+    create REST API end points at least 4
+        - list users (index)
+        - ensure you can connect to all tables using (index) end point
+        - create user
+        - update password
+        - delete user
+        - get list of user songs
+        - get list albums of an artist
+        - list album and songs for artist
+
+    Implement 1 or more index
+        - album to songs ?
+        - user to songs ?
+
+    trigger 
+        - add back user_songs date added field 
+        - trigger a now datetime write 
+
+    visualization?
+        - no ideas yet
