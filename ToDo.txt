@@ -25,20 +25,18 @@ restart 1
     psycopg2-binary==2.9.1
 
 ### TODO List ### 
+set up aws
     Create a gitHub reposiory - done
-    
-    AWS - set up
-        EC2
-            Public IPv4 DNS - info
+    set up a AWS EC2 VM - done
+    create a private key for c-tunes - done
+    set up elastic IP - done
+    create IAM role - done
+    create ECR (repository) - done
+    set up ec2 with -done
+        docker - done
+        docker compose - done
+        aws cli - done
 
-        inbound port rule
-
-        ECR
-            repository's URI - info 
-
-
-        RDS
-            endpoint and port - info
 
 start with workshop 2
 create docker compose container -
