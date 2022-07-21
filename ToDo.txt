@@ -1,29 +1,5 @@
 restart 1
 
-### GOAL: ###
-
-    Set up the C-tunes database for deployment on AWS
-        I think I am going to try to do this using the week 2 Workshop as my template
-
-### Tools / Packages ###
-    gitHub for rev control - setup
-    Docker to containerize and deployment
-    Postgress for the database
-    django - web deployment framework
-        as ORM 
-        migration manager 
-        Etc...
-    nginx - ?
-
-    AWS - to serve the db to endusers
-
-### Requirements
-    django==3.2.2
-    gunicorn==20.0.4
-    djangorestframework==3.12.4
-    python-decouple==3.4
-    psycopg2-binary==2.9.1
-
 ### TODO List ### 
 set up aws
     Create a gitHub reposiory - done
@@ -36,7 +12,19 @@ set up aws
         docker - done
         docker compose - done
         aws cli - done
+    add postgress security role to EC2 - done
+    create a RDS postgress database - done
 
+Elastic IP:
+13.56.63.45
+
+Public IPv4 DNS:
+ec2-13-56-63-45.us-west-1.compute.amazonaws.com
+
+ECR URI
+739505655405.dkr.ecr.us-west-1.amazonaws.com/c_tunes_aws
+
+***WS2 Task 3: Local Environment Setup***
 
 start with workshop 2
 create docker compose container -
