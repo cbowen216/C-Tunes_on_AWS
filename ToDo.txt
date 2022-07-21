@@ -1,3 +1,5 @@
+restart 1
+
 ### GOAL: ###
 
     Set up the C-tunes database for deployment on AWS
@@ -22,13 +24,9 @@
     python-decouple==3.4
     psycopg2-binary==2.9.1
 
-
-
-
 ### TODO List ### 
-    Create a gitHub reposiory - Done 
-    Build schema and track with migration
-    create docker container 
+    Create a gitHub reposiory - done
+    
     AWS - set up
         EC2
             Public IPv4 DNS - info
@@ -36,13 +34,17 @@
         inbound port rule
 
         ECR
-            epository's URI - info 
+            repository's URI - info 
 
 
         RDS
             endpoint and port - info
-                
 
+start with workshop 2
+create docker compose container -
+                
+    Build schema model
+    track with migration
 
     populate main tables with data
         users songs
@@ -60,13 +62,9 @@
         - get list albums of an artist
         - list album and songs for artist
 
-    Implement 1 or more index
-        - album to songs ?
-        - user to songs ?
+    testing 
+        db connections and read write 
 
-    trigger 
-        - add back user_songs date added field 
-        - trigger a now datetime write 
 
     visualization?
-        - no ideas yet
+        - use django templates
