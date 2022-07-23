@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+  web:
+    build: ./app
+    image: YOUR_REPO_HERE:workshop2_web
+    command: gunicorn nc_tutorials.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - ./app/:/usr/src/app/
+      - static_volume:/usr/src/app/static
+    expose:
+      - 8000
+    environment:
+      - DB_NAME=c_tunes_db
+      - DB_USER=postgres
+      - DB_PASSWORD=admin123
+      - DB_HOST=739505655405.dkr.ecr.us-west-1.amazonaws.com/c_tunes_aws
+      - DB_PORT=5432
+      - DATABASE=postgres
+      - VIRTUAL_HOST=ec2-13-56-63-45.us-west-1.compute.amazonaws.com
+      - VIRTUAL_PORT=8000
+  nginx:
+    build: ./nginx
+    image: YOUR_REPO_HERE:workshop2_nginx
+    volumes:
+      - static_volume:/usr/src/app/static
+    ports:
+      - 8000:80
+    depends_on:
+      - web
+volumes:
+  static_volume:
