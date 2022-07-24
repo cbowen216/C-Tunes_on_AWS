@@ -10,12 +10,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import BadHeaderError
 from django.template import loader
 
-from users.models import Users
+from users.models import User
 from .serializers import UserSerializer
 from rest_framework.decorators import api_view
 
 # Create your views here.
-User = get_user_model()
 
 def index(request):
     print("------------------------- I AM HERE")
@@ -25,11 +24,11 @@ def index(request):
 @api_view(['GET', 'POST', 'DELETE'])
 def user_list(request):
     if request.method == 'GET':
-        users = Users.objects.all()
+        users = User.objects.all()
 
         email = request.GET.get('email', None)
         if email is not None:
-            users = Users.filter(title__icontains=email)
+            users = User.filter(title__icontains=email)
 
         user_serializer = UserSerializer(users, many=True)
         return JsonResponse(user_serializer.data, safe=False)
@@ -50,7 +49,7 @@ def user_list(request):
         return JsonResponse(
             {
                 'message':
-                '{} Artist were deleted successfully!'.format(count[0])
+                '{} User were deleted successfully!'.format(count[0])
             },
             status=status.HTTP_204_NO_CONTENT)
 
