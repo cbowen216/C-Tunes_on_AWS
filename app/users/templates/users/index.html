@@ -1,0 +1,11 @@
+{% extends "tutorials/base.html" %} {% load static %}{% block title %} Tutorials
+{% endblock%} {% block content%}
+<div class="container">
+  <h1>Users</h1>
+  <ul>
+    {% for user in Users %}
+    <li>{{ user.email }}</li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %} {% block jsfiles %} {% endblock jsfiles %}

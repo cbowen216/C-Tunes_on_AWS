@@ -8,15 +8,22 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import BadHeaderError
 from django.template import loader
 
+from app.users.models import Users
+
 # Create your views here.
 User = get_user_model()
+
+def index(request):
+    print("------------------------- I AM HERE")
+    queryset = Users.objects.all()
+    return render(request, "users/index.html", {'users': queryset})
 
 def register(request):
     next = request.GET.get('next', '/')
     try:
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
-        auth_user = authenticate(request, username=username, password=password)
+        auth_user = authenticate(request, email=email, password=password)
         try:
             login(request, auth_user)
             return HttpResponseRedirect(next)
@@ -25,26 +32,26 @@ def register(request):
             return HttpResponseRedirect(next)
     except (KeyError):
         messages.error(request, 'Invalid credentials')
-        #return render(request, '/', { 'message': "Invalid username or password. Please try again." })
+        #return render(request, '/', { 'message': "Invalid email or password. Please try again." })
 
 
 def register(request):
     if request.method == 'POST':
-        username = request.POST['username']
+        email = request.POST['email']
         password = request.POST['password']
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
         email = request.POST['email']
 
         print("----------------- register called")
-        print(username)
+        print(email)
         print(password)
         print(firstname)
         print(lastname)
         print(email)
 
         # try:
-        #     user = get_object_or_404(User, username=username)
+        #     user = get_object_or_404(User, email=email)
         # except:
         #     pass
 

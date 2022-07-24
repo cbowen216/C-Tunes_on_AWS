@@ -28,10 +28,13 @@ start with workshop 2 - done
 update the references to the DB - done
 create docker compose container - done
 upload to AWS - done
-Test connection - 
-                
+Test connection - done
+
+start with users      
     Build schema model
-    track with migration
+    populate with seed data
+    test 
+    
 
     populate main tables with data
         users songs
@@ -51,6 +54,7 @@ Test connection -
 
     testing 
         db connections and read write 
+        automate push to deploy on aws
 
 
     visualization?
