@@ -1,3 +1,5 @@
+from django.http.response import JsonResponse
+from rest_framework.parsers import JSONParser
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
@@ -21,23 +23,23 @@ def index(request):
     return render(request, "users/index.html", {'users': queryset})
 
 @api_view(['GET', 'POST', 'DELETE'])
-def User_list(request):
+def user_list(request):
     if request.method == 'GET':
-        artists = User.objects.all()
+        users = Users.objects.all()
 
-        title = request.GET.get('title', None)
-        if title is not None:
-            artists = artists.filter(title__icontains=title)
+        email = request.GET.get('email', None)
+        if email is not None:
+            users = Users.filter(title__icontains=email)
 
-        artists_serializer = UserSerializer(artists, many=True)
-        return JsonResponse(artists_serializer.data, safe=False)
+        user_serializer = UserSerializer(users, many=True)
+        return JsonResponse(user_serializer.data, safe=False)
         # 'safe=False' for objects serialization
 
     elif request.method == 'POST':
-        Artist_data = JSONParser().parse(request)
-        Artist_serializer = UserSerializer(data=Artist_data)
-        if Artist_serializer.is_valid():
-            Artist_serializer.save()
+        User_data = JSONParser().parse(request)
+        User_serializer = UserSerializer(data=User_data)
+        if User_serializer.is_valid():
+            User_serializer.save()
             return JsonResponse(User_serializer.data,
                                 status=status.HTTP_201_CREATED)
         return JsonResponse(User_serializer.errors,
