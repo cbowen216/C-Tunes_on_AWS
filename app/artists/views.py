@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.http.response import JsonResponse
-from app import artists
 from rest_framework.parsers import JSONParser
 from rest_framework import status
 from rest_framework.renderers import TemplateHTMLRenderer
@@ -8,7 +7,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from artists.models import Artist
-from .serializers import ArtistSerializer
+from artists.serializers import ArtistSerializer
 from rest_framework.decorators import api_view
 
 # Create your views here.
