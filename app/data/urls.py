@@ -1,5 +1,5 @@
 from django.urls import path
-from tutorials import views as tutorials_views
+from data import views as tutorials_views
 from django.conf.urls.static import static
 from django.conf import settings
 

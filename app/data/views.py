@@ -6,8 +6,8 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from tutorials.models import Tutorial
-from tutorials.serializers import TutorialSerializer
+from data.models import Data
+from data.serializers import TutorialSerializer
 from rest_framework.decorators import api_view
 
 # Create your views here.
@@ -17,7 +17,7 @@ from rest_framework.decorators import api_view
 
 def index(request):
     print("------------------------- I AM HERE")
-    queryset = Tutorial.objects.all()
+    queryset = data.objects.all()
     return render(request, "tutorials/index.html", {'tutorials': queryset})
 
 
