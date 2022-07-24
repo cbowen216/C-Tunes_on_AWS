@@ -7,7 +7,7 @@ from rest_framework.renderers import TemplateHTMLRenderer
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from artists.models import Artists
+from artists.models import Artist
 from .serializers import ArtistSerializer
 from rest_framework.decorators import api_view
 

@@ -1,4 +1,5 @@
 from django.db import models
 
 
-    # update the model
+class Artist(models.Model):
+    name = models.CharField(max_length=200, blank=False, default='')
