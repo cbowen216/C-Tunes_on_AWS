@@ -26,7 +26,9 @@ ECR URI
 
 start with workshop 2 - done
 update the references to the DB - done
-create docker compose container -
+create docker compose container - done
+upload to AWS - done
+Test connection - 
                 
     Build schema model
     track with migration

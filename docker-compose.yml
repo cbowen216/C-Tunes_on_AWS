@@ -2,7 +2,7 @@ version: "3.8"
 services:
   web:
     build: ./app
-    image: 739505655405.dkr.ecr.us-west-1.amazonaws.com/c_tunes_aws:c_tunes_aws_web
+    image: 739505655405.dkr.ecr.us-west-1.amazonaws.com/c_tunes_aws:workshop2_web
     command: gunicorn nc_tutorials.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./app/:/usr/src/app/
@@ -20,7 +20,7 @@ services:
       - VIRTUAL_PORT=8000
   nginx:
     build: ./nginx
-    image: 739505655405.dkr.ecr.us-west-1.amazonaws.com/c_tunes_aws:c_tunes_aws_nginx
+    image: 739505655405.dkr.ecr.us-west-1.amazonaws.com/c_tunes_aws:workshop2_nginx
     volumes:
       - static_volume:/usr/src/app/static
     ports:
