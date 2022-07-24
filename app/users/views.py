@@ -8,6 +8,9 @@ from django.views.decorators.csrf import csrf_exempt
 from django.core.mail import BadHeaderError
 from django.template import loader
 
+from users.models import Users
+from .serializers import UserSerializer
+from rest_framework.decorators import api_view
 
 # Create your views here.
 User = get_user_model()
