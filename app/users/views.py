@@ -1,5 +1,9 @@
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
+from rest_framework.views import APIView
+from rest_framework.renderers import TemplateHTMLRenderer
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
@@ -12,7 +16,7 @@ from django.template import loader
 
 from users.models import User
 from .serializers import UserSerializer
-from rest_framework.decorators import api_view
+
 
 # Create your views here.
 
@@ -20,6 +24,23 @@ def index(request):
     print("------------------------- I AM HERE")
     queryset = User.objects.all()
     return render(request, "users/index.html", {'users': queryset})
+
+class index(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'user/index.html'
+
+    def get(self, request):
+        queryset = User.objects.all()
+        return Response({'users': queryset})
+
+
+class list_all_tutorials(APIView):
+    renderer_classes = [TemplateHTMLRenderer]
+    template_name = 'tutorials/tutorial_list.html'
+
+    def get(self, request):
+        queryset = User.objects.all()
+        return Response({'tutorials': queryset})
 
 @api_view(['GET', 'POST', 'DELETE'])
 def user_list(request):
