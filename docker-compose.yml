@@ -3,7 +3,7 @@ services:
   web:
     build: ./app
     image: 739505655405.dkr.ecr.us-west-1.amazonaws.com/c_tunes_aws:c-tunes_web
-    command: gunicorn nc_tutorials.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn c_tunes.wsgi:application --bind 0.0.0.0:8000
     volumes:
       - ./app/:/usr/src/app/
       - static_volume:/usr/src/app/static
