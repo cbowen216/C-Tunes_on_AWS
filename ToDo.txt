@@ -24,6 +24,9 @@ ec2-13-56-63-45.us-west-1.compute.amazonaws.com
 ECR URI
 739505655405.dkr.ecr.us-west-1.amazonaws.com/c_tunes_aws
 
+DB host end point
+ctunes.cucjg0dw7o5k.us-west-1.rds.amazonaws.com
+
 start with workshop 2 - done
 update the references to the DB - done
 create docker compose container - done
