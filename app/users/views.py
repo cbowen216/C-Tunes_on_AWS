@@ -14,8 +14,40 @@ User = get_user_model()
 
 def index(request):
     print("------------------------- I AM HERE")
-    queryset = Users.objects.all()
+    queryset = User.objects.all()
     return render(request, "users/index.html", {'users': queryset})
+
+@api_view(['GET', 'POST', 'DELETE'])
+def User_list(request):
+    if request.method == 'GET':
+        artists = User.objects.all()
+
+        title = request.GET.get('title', None)
+        if title is not None:
+            artists = artists.filter(title__icontains=title)
+
+        artists_serializer = UserSerializer(artists, many=True)
+        return JsonResponse(artists_serializer.data, safe=False)
+        # 'safe=False' for objects serialization
+
+    elif request.method == 'POST':
+        Artist_data = JSONParser().parse(request)
+        Artist_serializer = UserSerializer(data=Artist_data)
+        if Artist_serializer.is_valid():
+            Artist_serializer.save()
+            return JsonResponse(User_serializer.data,
+                                status=status.HTTP_201_CREATED)
+        return JsonResponse(User_serializer.errors,
+                            status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        count = User.objects.all().delete()
+        return JsonResponse(
+            {
+                'message':
+                '{} Artist were deleted successfully!'.format(count[0])
+            },
+            status=status.HTTP_204_NO_CONTENT)
 
 def register(request):
     next = request.GET.get('next', '/')

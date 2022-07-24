@@ -1,6 +1,6 @@
 from app.artists.models import Data
 from rest_framework import serializers
-from tutorials.models import Tutorial
+from artists.models import Tutorial
 
 
 class AritistSerializer(serializers.ModelSerializer):
