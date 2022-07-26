@@ -1,6 +1,9 @@
 restart 1
 
 ### TODO List ### 
+Set up vs code folders - done
+set up virt env
+
 set up aws
     Create a gitHub reposiory - done
     set up a AWS EC2 VM - done
@@ -18,7 +21,7 @@ set up aws
 Elastic IP:
 13.56.63.45
 
-Public IPv4 DNS:
+EC2 Public IPv4 DNS:
 ec2-13-56-63-45.us-west-1.compute.amazonaws.com
 
 ECR URI
