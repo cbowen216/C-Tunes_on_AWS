@@ -32,7 +32,7 @@ class index(APIView):
 
 class list_all_artists(APIView):
     renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'artists/Artist_list.html'
+    template_name = 'artists/artist_list.html'
 
     def get(self, request):
         queryset = Artist.objects.all()
