@@ -1,4 +1,4 @@
-{% extends "tutorials/base.html" %} {% load static %}{% block title %} NuCamp:
+{% extends "artists/base.html" %} {% load static %}{% block title %} NuCamp:
 Login {% endblock%} {% block content%}
 
 <div class="container">
@@ -16,14 +16,14 @@ Login {% endblock%} {% block content%}
     <form method="POST" class="form-signin form-group">
       {% csrf_token %}
       <div class="form-group row">
-        <label for="username" class="col-md-4 col-form-label">Username</label>
+        <label for="email" class="col-md-4 col-form-label">Email</label>
         <div class="col-md-8">
           <input
             type="text"
             class="form-control"
-            id="username"
-            name="username"
-            placeholder="Username"
+            id="email"
+            name="email"
+            placeholder="email"
           />
         </div>
       </div>

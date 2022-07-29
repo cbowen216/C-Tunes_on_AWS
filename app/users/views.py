@@ -19,6 +19,7 @@ from .serializers import UserSerializer
 
 
 # Create your views here.
+User = get_user_model()
 
 def index(request):
     print("------------------------- I AM HERE")
@@ -32,15 +33,6 @@ class index(APIView):
     def get(self, request):
         queryset = User.objects.all()
         return Response({'users': queryset})
-
-
-class list_all_tutorials(APIView):
-    renderer_classes = [TemplateHTMLRenderer]
-    template_name = 'tutorials/tutorial_list.html'
-
-    def get(self, request):
-        queryset = User.objects.all()
-        return Response({'tutorials': queryset})
 
 @api_view(['GET', 'POST', 'DELETE'])
 def user_list(request):
