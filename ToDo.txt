@@ -28,7 +28,7 @@ ECR URI
 739505655405.dkr.ecr.us-west-1.amazonaws.com/c_tunes_aws
 
 DB host end point
-ctunes.cucjg0dw7o5k.us-west-1.rds.amazonaws.com
+ctunes-1.cucjg0dw7o5k.us-west-1.rds.amazonaws.com
 
 start with workshop 2 - done
 update the references to the DB - done
