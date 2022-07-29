@@ -1,5 +1,5 @@
 """
-WSGI config for nc_tutorials project.
+WSGI config for c_tunes project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
