@@ -11,7 +11,7 @@ from django.template import loader
 # Create your views here.
 User = get_user_model()
 
-def register(request):
+def login(request):
     next = request.GET.get('next', '/')
     try:
         email = request.POST['email']
