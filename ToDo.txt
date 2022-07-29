@@ -38,6 +38,8 @@ Test connection - done
 
 start with users      
     Build schema model
+        inital build successful just artist and user tables
+        complete the db model
     populate with seed data
     test 
     
