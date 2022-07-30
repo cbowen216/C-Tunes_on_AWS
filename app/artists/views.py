@@ -44,9 +44,9 @@ def Artist_list(request):
     if request.method == 'GET':
         artists = Artist.objects.all()
 
-        title = request.GET.get('title', None)
-        if title is not None:
-            artists = artists.filter(title__icontains=title)
+        name = request.GET.get('name', None)
+        if name is not None:
+            artists = artists.filter(title__icontains=name)
 
         artists_serializer = ArtistSerializer(artists, many=True)
         return JsonResponse(artists_serializer.data, safe=False)
@@ -75,18 +75,18 @@ def Artist_list(request):
 @api_view(['GET', 'PUT', 'DELETE'])
 def Artist_detail(request, pk):
     try:
-        Artist = Artist.objects.get(pk=pk)
+        artist = Artist.objects.get(pk=pk)
     except Artist.DoesNotExist:
         return JsonResponse({'message': 'The Artist does not exist'},
                             status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
-        Artist_serializer = ArtistSerializer(Artist)
+        Artist_serializer = ArtistSerializer(artist)
         return JsonResponse(Artist_serializer.data)
 
     elif request.method == 'PUT':
         Artist_data = JSONParser().parse(request)
-        Artist_serializer = ArtistSerializer(Artist, data=Artist_data)
+        Artist_serializer = ArtistSerializer(artist, data=Artist_data)
         if Artist_serializer.is_valid():
             Artist_serializer.save()
             return JsonResponse(Artist_serializer.data)
@@ -97,12 +97,3 @@ def Artist_detail(request, pk):
         Artist.delete()
         return JsonResponse({'message': 'Artist was deleted successfully!'},
                             status=status.HTTP_204_NO_CONTENT)
-
-
-@api_view(['GET'])
-def Artist_list_published(request):
-    artists = Artist.objects.filter(published=True)
-
-    if request.method == 'GET':
-        artists_serializer = ArtistSerializer(artists, many=True)
-        return JsonResponse(artists_serializer.data, safe=False)
