@@ -7,7 +7,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-     path('api/users/', user_views.user_list),
+     path('api/users/', user_views.User_list),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
